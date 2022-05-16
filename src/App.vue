@@ -1,5 +1,10 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
+  <div>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <router-link to="/login">Login</router-link>
+    <router-link to="/main">Main</router-link>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script lang="ts">

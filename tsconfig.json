@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
+    // 目标代码
     "target": "esnext",
+    // 模块化方案
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
+    // 按照node模式解析模块
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,

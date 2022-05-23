@@ -1,15 +1,19 @@
 <template>
-  <div>Login</div>
-  <el-button type="primary">Primary</el-button>
-  {{ $store.state.name }}
+  <div class="login">
+    <login-panel></login-panel>
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-  setup() {
-    return {}
-  }
-})
+<script lang="ts" setup>
+import LoginPanel from './cpns/login-panel.vue'
 </script>
-<style scoped></style>
+<style lang="less" scoped>
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: url('../../assets/img/login-bg.svg');
+}
+</style>

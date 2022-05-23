@@ -2,29 +2,38 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-// import ElementPlus from 'element-plus'
-import { globalRegister } from './global'
+import 'normalize.css'
+import './assets/css/index.less'
+import ElementPlus from 'element-plus'
+// import { globalRegister } from './global'
 import 'element-plus/dist/index.css'
-import yyRequest from './service'
-yyRequest.request({
-  url: '/home/multidata',
-  method: 'GET',
-  interceptors: {
-    requestInterceptor: (config) => {
-      console.log(111)
-      return config
-    },
-    responseInterceptor: (res) => {
-      console.log(2222)
-      console.log(res)
-
-      return res
-    }
-  }
-})
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import { setupStore } from './store'
+// import yyRequest from './service'
+// yyRequest.request<any>({
+//   url: '/home/multidata',
+//   method: 'GET',
+//   showLoading: false,
+//   interceptors: {
+//     requestInterceptor: (config) => {
+//       return config
+//     },
+//     responseInterceptor: (res) => {
+//       console.log(res)
+//       return res
+//     }
+//   }
+// })
+// yyRequest.get({ url: '/home/multidata' }).then((res) => {
+//   console.log(res)
+// })
 const app = createApp(App)
-globalRegister(app)
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component)
+}
+// globalRegister(app)
 app.use(store)
 app.use(router)
-// app.use(ElementPlus)
+setupStore()
+app.use(ElementPlus)
 app.mount('#app')
